@@ -1,0 +1,14 @@
+.DS_Store
+.Rhistory
+.Rproj.user
+.Rproj.user/
+README.html
+EA_antibiotics_resistence.Rproj
+data/cip_clinical_mut_unique.RDS
+data/col_clinical_mut_unique.RDS
+data/Natrual_isolates_cipro_mutations_with_SIFT.csv
+data/Natrual_isolates_colistin_mutations_with_SIFT.csv
+src/data_prep_clinical.R
+src/ALE_downsample_full.R
+src/ALE_downsample_with_SIFT.R
+output/downsampling_results_with_SIFT.RData
