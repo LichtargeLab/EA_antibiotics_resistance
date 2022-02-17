@@ -6,8 +6,6 @@ This repository contains all the code to analyze the driver genes in ciprofloxac
 
 [Lichtarge Lab](http://lichtargelab.org)
 
-[Evolutionary Action](http://eaction.lichtargelab.org)
-
 [R shiny app to analyze driver genes in E. coli](http://bioheat.lichtargelab.org)
 
 ##### Related References
