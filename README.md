@@ -12,7 +12,7 @@ Use [src/AF_from_SangerSeq.R](https://github.com/LichtargeLab/EA_antibiotics_res
 
 ##### Related References
 
-[Katsonis P, Lichtarge O., A formal perturbation equation between genotype and phenotype determines the evolutionary action of protein coding variations on fitness, Genome Research, 2014 Sep 12. pii: gr.176214.114.](https://pubmed.ncbi.nlm.nih.gov/25217195/)
+[Katsonis P, Lichtarge O. A formal perturbation equation between genotype and phenotype determines the Evolutionary Action of protein-coding variations on fitness. Genome Res. 2014 Dec;24(12):2050-8.](https://pubmed.ncbi.nlm.nih.gov/25217195/)
 
 [Carr IM, Robinson JI, Dimitriou R, Markham AF, Morgan AW, Bonthron DT. Inferring relative proportions of DNA variants from sequencing electropherograms. Bioinformatics. 2009 Dec 15;25(24):3244-50.](https://pubmed.ncbi.nlm.nih.gov/19819885/)
 
