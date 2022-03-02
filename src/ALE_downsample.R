@@ -145,7 +145,7 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
       facet_wrap(GENE_name ~., scales = "free_y", ncol = 2) +
       theme_bw() +
       theme(strip.text = element_text(size = 11)) +
-      force_panelsizes(rows = unit(1, "in"), 
+      force_panelsizes(rows = unit(1.2, "in"), 
                        cols = unit(2.2, "in"), 
                        TRUE)
   } else if (type == "median") {
@@ -161,7 +161,7 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
       facet_wrap(GENE_name ~., scales = "free_y", ncol = 2) +
       theme_bw() +
       theme(strip.text = element_text(size = 11)) +
-      force_panelsizes(rows = unit(1, "in"), 
+      force_panelsizes(rows = unit(1.2, "in"), 
                        cols = unit(2.2, "in"), 
                        TRUE)
   }
@@ -173,29 +173,75 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
 PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "mean") +
   ggtitle("CIP - WT")
 PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "median") +
-  ggtitle("CIP - WT")
+  ggtitle("CIP - WT") +
+  theme(
+        legend.text = element_text(size =12),
+        strip.text.x = element_text(size = 14), # set font for label bars
+        axis.text = element_text(size = 12), # set font for axis numbers
+        axis.title = element_text(size = 14), # set font for axis titles
+        title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_CIP_WT.jpeg", width = 7, height = 7, units = "in")
 
 PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "mean") +
   ggtitle("CIP - WT+mutagen")
 PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "median") +
-  ggtitle("CIP - WT+mutagen")
+  ggtitle("CIP - WT+mutagen") +
+  theme(
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_CIP_WM.jpeg", width = 7, height = 8, units = "in")
+
 
 PlotDSTP(cip.MT.DS, cip.genes$GENE_name, type = "mean") +
   ggtitle("CIP - mutator")
 PlotDSTP(cip.MT.DS, cip.genes$GENE_name, type = "median") +
-  ggtitle("CIP - mutator")
+  ggtitle("CIP - mutator") +
+  theme(
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_CIP_MT.jpeg", width = 7, height = 9, units = "in")
+
 
 PlotDSTP(col.WT.DS, col.genes$GENE_name, type = "mean") +
   ggtitle("COL - WT")
 PlotDSTP(col.WT.DS, col.genes$GENE_name, type = "median") +
-  ggtitle("COL - WT")
+  ggtitle("COL - WT") +
+  theme(
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_COL_WT.jpeg", width = 7, height = 7, units = "in")
+
 
 PlotDSTP(col.WM.DS, col.genes$GENE_name, type = "mean") +
   ggtitle("COL - WT+mutagen")
 PlotDSTP(col.WM.DS, col.genes$GENE_name, type = "median") +
-  ggtitle("COL - WT+mutagen")
+  ggtitle("COL - WT+mutagen") +
+  theme(
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_COL_WM.jpeg", width = 7, height = 9, units = "in")
+
 
 PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "mean") +
   ggtitle("COL - mutator")
 PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "median") +
-  ggtitle("COL - mutator")
+  ggtitle("COL - mutator") +
+  theme(
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
+ggsave("plot/downsampling/ALE_COL_MT.jpeg", width = 7, height = 9, units = "in")

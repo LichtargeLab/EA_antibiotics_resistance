@@ -188,7 +188,7 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
       facet_wrap(GENE_name ~., scales = "free_y", ncol = 2) +
       theme_bw() +
       theme(strip.text = element_text(size = 11)) +
-      force_panelsizes(rows = unit(1, "in"), 
+      force_panelsizes(rows = unit(1.2, "in"), 
                        cols = unit(2.2, "in"), 
                        TRUE)
   } else if (type == "median") {
@@ -204,7 +204,7 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
       facet_wrap(GENE_name ~., scales = "free_y", ncol = 2) +
       theme_bw() +
       theme(strip.text = element_text(size = 11)) +
-      force_panelsizes(rows = unit(1, "in"), 
+      force_panelsizes(rows = unit(1.2, "in"), 
                        cols = unit(2.2, "in"), 
                        TRUE)
   }
@@ -212,15 +212,28 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
   return(output)
 }
 
-PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR", "marR"), type = "mean") +
-  ggtitle("CIP - clinical")
+PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR"), type = "median") +
+  theme(legend.position="bottom",
+        legend.text = element_text(size =12),
+        strip.text.x = element_text(size = 14), # set font for label bars
+        axis.text = element_text(size = 12), # set font for axis numbers
+        axis.title = element_text(size = 14), # set font for axis titles
+        title = element_text(size = 14))
+
 PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR", "marR"), type = "median", scale_rank = TRUE) +
   ggtitle("CIP - clinical")
 
-PlotDSTP(col.NI.DS, c("basS", "basR"), type = "mean") +
-  ggtitle("COL - clinical")
+PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
+  theme(legend.position="bottom",
+        legend.text = element_text(size =12),
+        strip.text.x = element_text(size = 14), # set font for label bars
+        axis.text = element_text(size = 12), # set font for axis numbers
+        axis.title = element_text(size = 14), # set font for axis titles
+        title = element_text(size = 14))
+
 PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
   ggtitle("COL - clinical")
+
 
 
 cip.NI.DS %>%

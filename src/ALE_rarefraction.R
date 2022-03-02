@@ -41,10 +41,16 @@ PlotRareFraction <- function(df, y_var, title) {
     mutate(sample_count = as.factor(sample_count)) %>%
     ggplot(aes_string(x = "sample_count", y = y_var)) + #as.factor function is important here, otherwise only one box for each fill
     geom_boxplot(notch=FALSE, outlier.shape=NA, alpha=0.5) +
-    xlab("sample_count") +
+    xlab("sample count") +
     scale_y_continuous(breaks= pretty_breaks()) +
-    ggtitle(title) +
-    theme_bw()
+    # ggtitle(title) +
+    theme_bw() +
+    theme(
+      legend.text = element_text(size =12),
+      strip.text.x = element_text(size = 14), # set font for label bars
+      axis.text = element_text(size = 10), # set font for axis numbers
+      axis.title = element_text(size = 14), # set font for axis titles
+      title = element_text(size = 14))
   return(output)
 }
 
@@ -85,15 +91,17 @@ rarefraction.output <- evolve %>%
   mutate(seed = c(343,949,23,829,10,154)) %>%
   mutate(result_all = map2(data, seed, ~RareFraction(evolve.df = .x, seed = .y)),
          result_TP = pmap(list(data, seed, TP), ~RareFraction(evolve.df = ..1, seed = ..2, genes = ..3))) %>%
-  mutate(all_gene_plot = pmap(list(result_all, abx, mut), ~PlotRareFraction(..1, "mutated_gene_count", paste0(..2, "-", ..3, "-all genes"))),
-         all_mut_plot = pmap(list(result_all, abx, mut), ~PlotRareFraction(..1, "mutation_count", paste0(..2, "-", ..3, "-all genes"))),
-         TP_gene_plot = pmap(list(result_TP, abx, mut), ~PlotRareFraction(..1, "mutated_gene_count", paste0(..2, "-", ..3, "-TP genes"))),
-         TP_mut_plot = pmap(list(result_TP, abx, mut), ~PlotRareFraction(..1, "mutation_count", paste0(..2, "-", ..3, "-TP genes")))) %>%
+  mutate(
+    #all_gene_plot = pmap(list(result_all, abx, mut), ~PlotRareFraction(..1, "mutated_gene_count", paste0(..2, "-", ..3, "-all genes"))),
+    #all_mut_plot = pmap(list(result_all, abx, mut), ~PlotRareFraction(..1, "mutation_count", paste0(..2, "-", ..3, "-all genes"))),
+    TP_gene_plot = pmap(list(result_TP, abx, mut), ~PlotRareFraction(..1, "mutated_gene_count", paste0(..2, "-", ..3, "-TP genes"))),
+    # TP_mut_plot = pmap(list(result_TP, abx, mut), ~PlotRareFraction(..1, "mutation_count", paste0(..2, "-", ..3, "-TP genes")))
+  ) %>%
   arrange(abx, desc(mut))
 
-plot_grid(plotlist = rarefraction.output$all_gene_plot, align = "hv", nrow = 2)
-plot_grid(plotlist = rarefraction.output$all_mut_plot, align = "hv", nrow = 2)
+# plot_grid(plotlist = rarefraction.output$all_gene_plot, align = "hv", nrow = 2)
+# plot_grid(plotlist = rarefraction.output$all_mut_plot, align = "hv", nrow = 2)
 plot_grid(plotlist = rarefraction.output$TP_gene_plot, align = "hv", nrow = 2)
-plot_grid(plotlist = rarefraction.output$TP_mut_plot, align = "hv", nrow = 2)
+# plot_grid(plotlist = rarefraction.output$TP_mut_plot, align = "hv", nrow = 2)
 
 
