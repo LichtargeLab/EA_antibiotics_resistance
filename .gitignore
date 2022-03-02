@@ -12,3 +12,5 @@ src/data_prep_clinical.R
 src/ALE_downsample_full.R
 src/ALE_downsample_with_SIFT.R
 output/downsampling_results_with_SIFT.RData
+EA_antibiotics_resistance.Rproj
+.gitignore
