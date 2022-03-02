@@ -1,4 +1,7 @@
-# Method adapted by Chen Wang from Carr, I. M., J. I. Robinson, R. Dimitriou, A. F. Markham, A. W. Morgan, and D. T. Bonthron. 2009. “Inferring Relative Proportions of DNA Variants from Sequencing Electropherograms.” Bioinformatics 25 (24): 3244–50. https://doi.org/10.1093/bioinformatics/btp583.
+# Method adapted by Chen Wang from Carr, I. M., J. I. Robinson, R. Dimitriou, 
+# A. F. Markham, A. W. Morgan, and D. T. Bonthron. 2009. “Inferring Relative 
+# Proportions of DNA Variants from Sequencing Electropherograms.” Bioinformatics 
+# 25 (24): 3244–50. https://doi.org/10.1093/bioinformatics/btp583.
 # This script computes the allele frequency at a give position using Sanger
 # sequencing data. Please refer to the original publication for detail.
 
