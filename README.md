@@ -4,13 +4,13 @@ This repository contains all the code to analyze the driver genes in ciprofloxac
 
 Use [src/AF_from_SangerSeq.R](https://github.com/LichtargeLab/EA_antibiotics_resistance/blob/master/src/AF_from_SangerSeq.R) to compute allele frequencies from electropherograms.
 
-#### Websites
+### Websites
 
 [Lichtarge Lab](http://lichtargelab.org)
 
 [R shiny app to analyze driver genes in E. coli](http://bioheat.lichtargelab.org)
 
-##### Related References
+### Related References
 
 [Katsonis P, Lichtarge O. A formal perturbation equation between genotype and phenotype determines the Evolutionary Action of protein-coding variations on fitness. Genome Res. 2014 Dec;24(12):2050-8.](https://pubmed.ncbi.nlm.nih.gov/25217195/)
 
