@@ -67,7 +67,7 @@ ClinicalSumEA <- function(SNP_df) {
 ############################################################################
 # cipro
 ############################################################################
-cip <- readRDS("data/Natrual_isolates_cipro_mutations_with_SIFT.RDS")
+cip <- readRDS("data/Natural_isolates_cipro_mutations_with_SIFT.RDS")
 
 cip_KS_bg <- cip %>%
   filter(resis == "S") %>%
@@ -84,8 +84,8 @@ cip_KS_R <- cip %>%
 cip_KS_Freq <- KS_Freq(cip_KS_R, cip_KS_bg)
 cip_EAsum <- ClinicalSumEA(cip)
 
-saveRDS(cip_KS_Freq, "output/Natrual_isolates_cipro_EAKS_details.RDS")
-saveRDS(cip_EAsum, "output/Natrual_isolates_cipro_EAsum_details.RDS")
+saveRDS(cip_KS_Freq, "output/Natural_isolates_cipro_EAKS_details.RDS")
+saveRDS(cip_EAsum, "output/Natural_isolates_cipro_EAsum_details.RDS")
 
 cip_output <- select(cip_KS_Freq, b_num, GENE_name, EAKS.rank, Freq.rank) %>%
   full_join(select(cip_EAsum, b_num, EAsum.rank = sumEA.diff.rank)) %>%
@@ -96,7 +96,7 @@ rm(list = c("cip", "cip_KS_bg", "cip_KS_R"))
 ############################################################################
 # colistin
 ############################################################################
-col <- readRDS("data/Natrual_isolates_colistin_mutations_with_SIFT.RDS")
+col <- readRDS("data/Natural_isolates_colistin_mutations_with_SIFT.RDS")
 
 col_KS_bg <- col %>%
   filter(resis == "S") %>%
@@ -113,13 +113,13 @@ col_KS_R <- col %>%
 col_KS_Freq <- KS_Freq(col_KS_R, col_KS_bg)
 col_EAsum <- ClinicalSumEA(col)
 
-saveRDS(col_KS_Freq, "output/Natrual_isolates_colistin_EAKS_details.RDS")
-saveRDS(col_EAsum, "output/Natrual_isolates_colistin_EAsum_details.RDS")
+saveRDS(col_KS_Freq, "output/Natural_isolates_colistin_EAKS_details.RDS")
+saveRDS(col_EAsum, "output/Natural_isolates_colistin_EAsum_details.RDS")
 
 col_output <- select(col_KS_Freq, b_num, GENE_name, EAKS.rank, Freq.rank) %>%
   full_join(select(col_EAsum, b_num, EAsum.rank = sumEA.diff.rank)) %>%
   arrange(EAKS.rank)
 
 
-openxlsx::write.xlsx(list(cip_output, col_output), "output/Natrual_isolates_EA_output.xlsx",
+openxlsx::write.xlsx(list(cip_output, col_output), "output/Natural_isolates_EA_output.xlsx",
                      sheetName = c("cipro", "colistin"))

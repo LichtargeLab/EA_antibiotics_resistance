@@ -75,7 +75,7 @@ ClinicalSumEA <- function(SNP_df) {
 }
 
 
-# Downsample function for natrual isolates data
+# Downsample function for natural isolates data
 DS_NI <- function(mut.df, seed = 100) {
   mut.R <- mut.df %>%
     filter(resis == "R")
@@ -117,18 +117,18 @@ DS_NI <- function(mut.df, seed = 100) {
 
 
 
-cip <- readRDS("data/Natrual_isolates_cipro_mutations_with_SIFT.RDS")
+cip <- readRDS("data/Natural_isolates_cipro_mutations_with_SIFT.RDS")
 
 cip.NI.DS <- DS_NI(cip, seed = 230)
 
-col <- readRDS("data/Natrual_isolates_colistin_mutations_with_SIFT.RDS")
+col <- readRDS("data/Natural_isolates_colistin_mutations_with_SIFT.RDS")
 
 col.NI.DS <- DS_NI(col, seed = 304)
 
 # save(list = c("cip.NI.DS", "col.NI.DS"),
-#      file = "output/Natrual_isolates_downsampling_results.RData")
+#      file = "output/Natural_isolates_downsampling_results.RData")
 
-load("output/Natrual_isolates_downsampling_results.RData")
+load("output/Natural_isolates_downsampling_results.RData")
 
 
 # Positive genes

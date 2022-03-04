@@ -68,7 +68,7 @@ ClinicalSumSIFT <- function(SNP_df) {
 ############################################################################
 # cipro
 ############################################################################
-cip <- readRDS("data/Natrual_isolates_cipro_mutations_with_SIFT.RDS") %>%
+cip <- readRDS("data/Natural_isolates_cipro_mutations_with_SIFT.RDS") %>%
   filter(!is.na(SIFT_adj))
 
 cip_KS_bg <- cip %>%
@@ -86,8 +86,8 @@ cip_KS_R <- cip %>%
 cip_KS_Freq <- KS_Freq_SIFT(cip_KS_R, cip_KS_bg)
 cip_SIFTsum <- ClinicalSumSIFT(cip)
 
-saveRDS(cip_KS_Freq, "output/Natrual_isolates_cipro_SIFT_KS_details.RDS")
-saveRDS(cip_SIFTsum, "output/Natrual_isolates_cipro_SIFTsum_details.RDS")
+saveRDS(cip_KS_Freq, "output/Natural_isolates_cipro_SIFT_KS_details.RDS")
+saveRDS(cip_SIFTsum, "output/Natural_isolates_cipro_SIFTsum_details.RDS")
 
 cip_output <- select(cip_KS_Freq, b_num, GENE_name, SIFT_adj_KS.rank, Freq.rank) %>%
   full_join(select(cip_SIFTsum, b_num, SIFT_adj_sum.rank = sumSIFT.diff.rank)) %>%
@@ -98,7 +98,7 @@ rm(list = c("cip", "cip_KS_bg", "cip_KS_R"))
 ############################################################################
 # colistin
 ############################################################################
-col <- readRDS("data/Natrual_isolates_colistin_mutations_with_SIFT.RDS") %>%
+col <- readRDS("data/Natural_isolates_colistin_mutations_with_SIFT.RDS") %>%
   filter(!is.na(SIFT_adj))
 
 col_KS_bg <- col %>%
@@ -116,13 +116,13 @@ col_KS_R <- col %>%
 col_KS_Freq <- KS_Freq_SIFT(col_KS_R, col_KS_bg)
 col_SIFTsum <- ClinicalSumSIFT(col)
 
-saveRDS(col_KS_Freq, "output/Natrual_isolates_colistin_SIFT_KS_details.RDS")
-saveRDS(col_SIFTsum, "output/Natrual_isolates_colistin_SIFTsum_details.RDS")
+saveRDS(col_KS_Freq, "output/Natural_isolates_colistin_SIFT_KS_details.RDS")
+saveRDS(col_SIFTsum, "output/Natural_isolates_colistin_SIFTsum_details.RDS")
 
 col_output <- select(col_KS_Freq, b_num, GENE_name, SIFT_adj_KS.rank, Freq.rank) %>%
   full_join(select(col_SIFTsum, b_num, SIFT_adj_sum.rank = sumSIFT.diff.rank)) %>%
   arrange(SIFT_adj_KS.rank)
 
 
-openxlsx::write.xlsx(list(cip_output, col_output), "output/Natrual_isolates_SIFT_output.xlsx",
+openxlsx::write.xlsx(list(cip_output, col_output), "output/Natural_isolates_SIFT_output.xlsx",
                      sheetName = c("cipro", "colistin"))

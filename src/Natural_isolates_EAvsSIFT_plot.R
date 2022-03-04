@@ -18,16 +18,16 @@ col.genes <- tibble(GENE_name = c("basS", "basR"),
                                  "ybjX", "ynjC", "osmE"),
                    class = "newly_identified"))
 
-cip_EA <- openxlsx::read.xlsx("output/Natrual_isolates_EA_output.xlsx", sheet = "cipro") %>%
+cip_EA <- openxlsx::read.xlsx("output/Natural_isolates_EA_output.xlsx", sheet = "cipro") %>%
   select(-Freq.rank)
 
-col_EA <- openxlsx::read.xlsx("output/Natrual_isolates_EA_output.xlsx", sheet = "colistin") %>%
+col_EA <- openxlsx::read.xlsx("output/Natural_isolates_EA_output.xlsx", sheet = "colistin") %>%
   select(-Freq.rank)
 
-cip_SIFT <- openxlsx::read.xlsx("output/Natrual_isolates_SIFT_output.xlsx", sheet = "cipro") %>%
+cip_SIFT <- openxlsx::read.xlsx("output/Natural_isolates_SIFT_output.xlsx", sheet = "cipro") %>%
   select(-Freq.rank)
 
-col_SIFT <- openxlsx::read.xlsx("output/Natrual_isolates_SIFT_output.xlsx", sheet = "colistin") %>%
+col_SIFT <- openxlsx::read.xlsx("output/Natural_isolates_SIFT_output.xlsx", sheet = "colistin") %>%
   select(-Freq.rank)
 
 
