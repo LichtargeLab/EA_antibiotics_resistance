@@ -25,3 +25,7 @@ install.packages(c("tidyverse", "furrr", "RobustRankAggreg", "openxlsx", "scales
 devtools::install_github("rensa/stickylabeller")
 
 ```
+
+### Notes
+
+The code is tested on macOS Catalina. The EA analyses took several minutes to run on a 2017 MacBook Air for both ALE and natural isolate datasets. The downsampling analyses took days to run on a computing cluster using 20 computing threads.
