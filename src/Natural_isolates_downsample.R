@@ -215,7 +215,7 @@ PlotDSTP <- function(df, TP, type = c("mean", "median"), scale_rank = FALSE) {
 PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR"), type = "median") +
   theme(legend.position="bottom",
         legend.text = element_text(size =12),
-        strip.text.x = element_text(size = 14), # set font for label bars
+        strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))
@@ -226,7 +226,7 @@ PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR", "marR"), type = "median", 
 PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
   theme(legend.position="bottom",
         legend.text = element_text(size =12),
-        strip.text.x = element_text(size = 14), # set font for label bars
+        strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))

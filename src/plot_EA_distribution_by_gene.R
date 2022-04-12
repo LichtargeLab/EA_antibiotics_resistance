@@ -87,7 +87,7 @@ GraphGeneEA_with_p_count <- function(df, bg, ABX, gene, include.stop = FALSE) {
           strip.text.x = element_text(size = 14), # set font for label bars
           axis.text = element_text(size = 12), # set font for axis numbers
           axis.title = element_text(size = 14), # set font for axis titles
-          title = element_text(size = 14)) + 
+          plot.title = element_text(size = 16, face="italic")) + 
     facet_wrap(~mut, scales = "free_y", nrow =1) +
     ggtitle(gene)
   return(plt)
@@ -145,7 +145,7 @@ GraphGeneSIFT_with_p_count <- function(df, bg, ABX, gene, include.stop = FALSE) 
           strip.text.x = element_text(size = 14), # set font for label bars
           axis.text = element_text(size = 12), # set font for axis numbers
           axis.title = element_text(size = 14), # set font for axis titles
-          title = element_text(size = 14)) + 
+          plot.title = element_text(size = 16, face="italic")) + 
     facet_wrap(~mut, scales = "free_y", nrow =1) +
     ggtitle(gene)
   return(plt)
@@ -165,3 +165,10 @@ GraphGeneSIFT_with_p_count(evolve, random, ABX = "COL", gene = "ynjC", include.s
 #   geom_histogram(aes(x = SIFT_adj, y=..count..), color = "black",position="identity", alpha=1, breaks = 10*0:10) +
 #   ggtitle("Distribution of adjusted SIFT scores for random mutations")
 #   
+
+figures <- tibble(abx = c("CIP", "CIP", "COL", "COL"),
+                  gene = c("gyrA", "parC","basS", "basR"),
+                  width = c(6, 6, 6, 6)*1.2) %>%
+  mutate(figs = map2(abx, gene, ~GraphGeneEA_with_p_count(evolve, random, ABX = .x, gene = .y, include.stop = TRUE)))
+pmap(list(figures$figs, figures$gene, figures$width), ~ggsave(filename = paste0("plot/ALE_single_gene_EAdist/", ..2, ".jpeg"), 
+                                                              plot = ..1, height = 3, width = ..3, units = "in"))

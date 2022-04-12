@@ -22,7 +22,7 @@ GraphRankings <- function(graph.df, highlight.genes, xvar, yvar, title,
   output.plot <- ggplot() +
     geom_point(data = filter(graph.df, !GENE_name %in% highlight.genes$GENE_name), aes(x = !!sym(xvar), y = !!sym(yvar)), fill = "gray60", color = "gray60", pch=21, alpha = 0.5) +
     geom_point(data = highlight.df, aes(x = !!sym(xvar), y = !!sym(yvar), fill = class), color = "black", pch=21, size = 2) +
-    ggrepel::geom_text_repel(data = highlight.df, aes(x = !!sym(xvar), y = !!sym(yvar), label = GENE_name), nudge_x = -0.2, nudge_y = 0, fontface = "bold", size = 4) +
+    ggrepel::geom_text_repel(data = highlight.df, aes(x = !!sym(xvar), y = !!sym(yvar), label = GENE_name), nudge_x = -0.2, nudge_y = 0, fontface = "bold.italic", size = 4) +
     geom_function(fun = function(x) x, color = "red", linetype = 2) +
     # scale_fill_manual(values = c("blue", "red")) +
     guides(fill=guide_legend(title="")) +

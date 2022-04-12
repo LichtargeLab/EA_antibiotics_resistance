@@ -19,7 +19,7 @@ cip.highlight.df <- cip.graph.df %>%
 ggplot() +
   geom_point(data = filter(cip.graph.df, !GENE_name %in% cip.select$GENE_name), aes(x = Freq_combine, y = EAKS_combine), fill = "gray60", color = "gray60", pch=21, alpha = 0.5) +
   geom_point(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, fill = class), color = "black",pch=21, size = 2) +
-  ggrepel::geom_text_repel(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold", size = 4) +
+  ggrepel::geom_text_repel(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold.italic", size = 4) +
   geom_function(fun = function(x) x, color = "red", linetype = 2) +
   scale_fill_manual(values = c("#FEF851", "gray10", "#418F21", "#EB58F9")) +
   guides(fill=guide_legend(title="")) +
@@ -50,7 +50,7 @@ col.highlight.df <- col.graph.df %>%
 ggplot() +
   geom_point(data = filter(col.graph.df, !GENE_name %in% col.select$GENE_name), aes(x = Freq_combine, y = EAKS_combine), fill = "gray60", color = "gray60", pch=21, alpha = 0.5) +
   geom_point(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, fill = class), color = "black",pch=21, size = 2) +
-  ggrepel::geom_text_repel(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold", size = 4) +
+  ggrepel::geom_text_repel(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold.italic", size = 4) +
   geom_function(fun = function(x) x, color = "red", linetype = 2) +
   scale_fill_manual(values = c("#FEF851", "#418F21", "#EB58F9")) +
   guides(fill=guide_legend(title="")) +

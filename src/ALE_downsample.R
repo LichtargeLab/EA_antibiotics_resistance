@@ -176,7 +176,7 @@ PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "median") +
   ggtitle("CIP - WT") +
   theme(
         legend.text = element_text(size =12),
-        strip.text.x = element_text(size = 14), # set font for label bars
+        strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))
@@ -188,7 +188,7 @@ PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "median") +
   ggtitle("CIP - WT+mutagen") +
   theme(
     legend.text = element_text(size =12),
-    strip.text.x = element_text(size = 14), # set font for label bars
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
@@ -201,7 +201,7 @@ PlotDSTP(cip.MT.DS, cip.genes$GENE_name, type = "median") +
   ggtitle("CIP - mutator") +
   theme(
     legend.text = element_text(size =12),
-    strip.text.x = element_text(size = 14), # set font for label bars
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
@@ -214,7 +214,7 @@ PlotDSTP(col.WT.DS, col.genes$GENE_name, type = "median") +
   ggtitle("COL - WT") +
   theme(
     legend.text = element_text(size =12),
-    strip.text.x = element_text(size = 14), # set font for label bars
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
@@ -227,7 +227,7 @@ PlotDSTP(col.WM.DS, col.genes$GENE_name, type = "median") +
   ggtitle("COL - WT+mutagen") +
   theme(
     legend.text = element_text(size =12),
-    strip.text.x = element_text(size = 14), # set font for label bars
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
@@ -240,7 +240,7 @@ PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "median") +
   ggtitle("COL - mutator") +
   theme(
     legend.text = element_text(size =12),
-    strip.text.x = element_text(size = 14), # set font for label bars
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
