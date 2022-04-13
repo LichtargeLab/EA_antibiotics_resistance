@@ -32,6 +32,10 @@ col_SIFT <- openxlsx::read.xlsx("output/ALE_SIFT_output.xlsx", sheet = "colistin
 cip <- full_join(cip_EA, cip_SIFT)
 col <- full_join(col_EA, col_SIFT)
 
+list(select(cip, b_num, GENE_name, ends_with("_combine")),
+     select(col, b_num, GENE_name, ends_with("_combine"))) %>%
+  openxlsx::write.xlsx(., "output/ALE_EAvsSIFT.xlsx", sheetName = c("cipro", "colistin"))
+
 GraphRankings(cip, highlight.genes = cip.genes, xvar = "SIFT_adj_KS_combine", yvar = "EAKS_combine", 
               title = NULL,
               xlab = "SIFT_adj_KS rank", ylab = "EA_KS rank")

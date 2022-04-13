@@ -35,6 +35,8 @@ cip <- full_join(cip_EA, cip_SIFT)
 col <- full_join(col_EA, col_SIFT)
 
 
+openxlsx::write.xlsx(list(cip, col),
+                     "output/Natural_isolates_EAvsSIFT.xlsx", sheetName = c("cipro", "colistin"))
 
 
 GraphRankings(cip, highlight.genes = cip.genes, xvar = "SIFT_adj_KS.rank", yvar = "EAKS.rank", 
