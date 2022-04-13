@@ -105,3 +105,9 @@ plot_grid(plotlist = rarefraction.output$TP_gene_plot, align = "hv", nrow = 2)
 ggsave("plot/downsampling/ALE_TP.pdf", width = 12, height = 6, units = "in")
 # plot_grid(plotlist = rarefraction.output$TP_mut_plot, align = "hv", nrow = 2)
 
+output <- rarefraction.output %>%
+  select(mut, abx, result_TP) %>%
+  unnest(cols = c(result_TP)) %>%
+  select(mut, abx, sample_count, rep, mutated_TP_gene = mutated_gene_count)
+
+write_csv(output, "output/ALE_rarefraction.csv")

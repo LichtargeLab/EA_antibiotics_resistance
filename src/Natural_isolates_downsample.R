@@ -255,3 +255,18 @@ col.NI.DS %>%
   scale_y_reverse(breaks= pretty_breaks()) +
   ggtitle("COL-clinical-all genes") +
   theme_bw()
+
+
+cipro_TP_output <- cip.NI.DS %>%
+  mutate(data = map(results, ~ExtractTP(., TP = c("gyrA", "parC", "parE", "acrR")))) %>%
+  select(sample_count, rep, data) %>%
+  unnest(cols = c(data))
+
+colistin_TP_output <- col.NI.DS %>%
+  mutate(data = map(results, ~ExtractTP(., TP = c("basS", "basR")))) %>%
+  select(sample_count, rep, data) %>%
+  unnest(cols = c(data))
+
+openxlsx::write.xlsx(list(cipro_TP_output, colistin_TP_output),
+                     "output/Natural_isolates_downsampling_TP.xlsx",
+                     sheetName = c("cipro", "colistin"))

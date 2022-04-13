@@ -175,11 +175,11 @@ PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "mean") +
 PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "median") +
   ggtitle("CIP - WT") +
   theme(
-        legend.text = element_text(size =12),
-        strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
-        axis.text = element_text(size = 12), # set font for axis numbers
-        axis.title = element_text(size = 14), # set font for axis titles
-        title = element_text(size = 14))
+    legend.text = element_text(size =12),
+    strip.text.x = element_text(size = 14, face = "italic"), # set font for label bars
+    axis.text = element_text(size = 12), # set font for axis numbers
+    axis.title = element_text(size = 14), # set font for axis titles
+    title = element_text(size = 14))
 ggsave("plot/downsampling/ALE_CIP_WT.pdf", width = 7, height = 7, units = "in")
 
 PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "mean") +
@@ -245,3 +245,26 @@ PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "median") +
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
 ggsave("plot/downsampling/ALE_COL_MT.pdf", width = 7, height = 9, units = "in")
+
+
+output.cip <- tibble(abx = "CIP", mut = c("MT", "WM", "WT")) %>%
+  mutate(ds = list(cip.MT.DS,
+                   cip.WM.DS,
+                   cip.WT.DS)) %>%
+  unnest(cols = c(ds)) %>%
+  mutate(data = map(results, ~ExtractTP(., TP = cip.genes$GENE_name))) %>%
+  select(abx, mut, sample_count, rep, data) %>%
+  unnest(cols = c(data)) 
+
+output.col <- tibble(abx = "COL", mut = c("MT", "WM", "WT")) %>%
+  mutate(ds = list(col.MT.DS,
+                   col.WM.DS,
+                   col.WT.DS)) %>%
+  unnest(cols = c(ds)) %>%
+  mutate(data = map(results, ~ExtractTP(., TP = col.genes$GENE_name))) %>%
+  select(abx, mut, sample_count, rep, data) %>%
+  unnest(cols = c(data)) 
+
+output <- bind_rows(output.cip, output.col)
+
+write_csv(output, "output/ALE_downsampling_TP.csv")

@@ -173,3 +173,7 @@ figures <- tibble(abx = c("CIP", "CIP", "COL", "COL"),
   mutate(figs = map2(abx, gene, ~GraphGeneEA_with_p_count(evolve, random, ABX = .x, gene = .y, include.stop = TRUE)))
 pmap(list(figures$figs, figures$gene, figures$width), ~ggsave(filename = paste0("plot/ALE_single_gene_EAdist/", ..2, ".pdf"), 
                                                               plot = ..1, height = 3, width = ..3, units = "in"))
+
+
+ynjC <- evolve %>%
+  filter(abx == "COL", GN == "ynjC")
