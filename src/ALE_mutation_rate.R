@@ -82,23 +82,25 @@ pairwise.test <- mutation_rate %>%
 mutation_rate %>%
   ggdotplot(x = "mut", y = "coding_mut_per_day",
             fill = "mut", palette = c("black", "blue", "red"),
-            facet.by = "abx", binwidth = 0.04, dotsize = 1.5) +
+            facet.by = "abx", binwidth = 0.04, dotsize = 2) +
   scale_y_log10() +
   theme_classic() +
   theme(legend.position = "none",
-        axis.text.x = element_text(size = 14, angle = 90), # set font for axis numbers
-        axis.text.y = element_text(size = 14),
-        legend.title = element_blank(),
-        axis.title = element_text(size = 14),
-        strip.text.x = element_text(size = 14) # set font for label bars
+        text = element_text(size=8.5),
+        axis.text.x = element_text(angle = 90, size=8.5), # set font for axis numbers
+        axis.text.y = element_text(size=8.5), 
+        axis.title = element_text(size=8.5),
+        strip.text = element_text(size=8.5),
+        legend.title = element_blank()
   ) + # set font for axis titles
   xlab(NULL) +
   ylab("Average coding mutation count per day") +
   stat_pvalue_manual(
-    pairwise.test,  label = "p.label", tip.length = 0
+    pairwise.test,  label = "p.label", tip.length = 0, size = 2.4
   ) +
   # stat_compare_means(comparisons = my_comparisons, method = "t.test", label = "p.signif") +
   add_logticks(sides = "l", data = data.frame(x= NA, abx = "ciprofloxacin"))
 
+ggsave("plot/ALE_mutation_rate.pdf", width = 2.4, height = 3.3, units = "in")
 
 

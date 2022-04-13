@@ -47,11 +47,11 @@ ggplot(data = cip.test) +
   xlab("") +
   theme_bw() +
   theme(legend.position = "none",
-        strip.text = element_text(size = 14), # set font for label bars
-        axis.text = element_text(size = 12), # set font for axis numbers
-        axis.title = element_text(size = 14), # set font for axis titles
-        title = element_text(size = 14))
-
+        strip.text = element_text(size = 11), # set font for label bars
+        axis.text = element_text(size = 11), # set font for axis numbers
+        axis.title = element_text(size = 11), # set font for axis titles
+        title = element_text(size = 11))
+ggsave("plot/ALE_EAvsFreq/ALE_EA_scatter_column_cipro.pdf", width = 4, height = 6, units = "in")
 
 
 col.test <- col.graph.df %>%
@@ -83,9 +83,8 @@ ggplot(data = col.test) +
   xlab("") +
   theme_bw() +
   theme(legend.position = "none",
-        strip.text = element_text(size = 14), # set font for label bars
-        axis.text = element_text(size = 12), # set font for axis numbers
-        axis.title = element_text(size = 14), # set font for axis titles
-        title = element_text(size = 14))
-
-
+        strip.text = element_text(size = 11), # set font for label bars
+        axis.text = element_text(size = 11), # set font for axis numbers
+        axis.title = element_text(size = 11), # set font for axis titles
+        title = element_text(size = 11))
+ggsave("plot/ALE_EAvsFreq/ALE_EA_scatter_column_colistin.pdf", width = 4, height = 6, units = "in")

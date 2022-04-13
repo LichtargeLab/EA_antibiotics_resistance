@@ -31,13 +31,13 @@ GraphRankings(cip_EA, highlight.genes = cip.genes, xvar = "Freq.rank", yvar = "E
               title = NULL,
               xlab = "Frequency rank", ylab = "EA_KS rank") +
   theme(legend.position = "none")
-ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_cipro_EAKSvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_cipro_EAKSvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
 GraphRankings(cip_EA, highlight.genes = cip.genes, xvar = "Freq.rank", yvar = "EAsum.rank", 
               title = NULL,
               xlab = "Frequency rank", ylab = "EA_sum rank") +
   theme(legend.position = "none")
-ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_cipro_EAsumvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_cipro_EAsumvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
 
 
@@ -45,11 +45,20 @@ GraphRankings(col_EA, highlight.genes = col.genes, xvar = "Freq.rank", yvar = "E
               title = NULL,
               xlab = "Frequency rank", ylab = "EA_KS rank") +
   theme(legend.position = "none")
-ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_colistin_EAKSvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_colistin_EAKSvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
 GraphRankings(col_EA, highlight.genes = col.genes, xvar = "Freq.rank", yvar = "EAsum.rank", 
               title = NULL,
               xlab = "Frequency rank", ylab = "EA_sum rank") +
   theme(legend.position = "none")
-ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_colistin_EAsumvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/Natural_isolates_EAvsFreq/Natural_isolates_colistin_EAsumvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
+
+legend <- cowplot::get_legend(GraphRankings(col_EA, highlight.genes = col.genes, xvar = "Freq.rank", yvar = "EAsum.rank", 
+                                            title = NULL,
+                                            xlab = "Frequency rank", ylab = "EA_sum rank"))
+
+pdf("plot/Natural_isolates_EAvsFreq/legend.pdf", height = 0.8, width = 2)
+grid::grid.newpage()
+grid::grid.draw(legend)
+dev.off()

@@ -35,26 +35,26 @@ col <- full_join(col_EA, col_SIFT)
 GraphRankings(cip, highlight.genes = cip.genes, xvar = "SIFT_adj_KS_combine", yvar = "EAKS_combine", 
               title = NULL,
               xlab = "SIFT_adj_KS rank", ylab = "EA_KS rank")
-ggsave("plot/ALE_EAvsSIFT/ALE_cipro_EAKSvsSIFTKS.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsSIFT/ALE_cipro_EAKSvsSIFTKS.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 
 GraphRankings(cip, highlight.genes = cip.genes, xvar = "SIFT_adj_sum_combine", yvar = "EAsum_combine", 
               title = NULL, 
               xlab = "SIFT_adj_sum rank", ylab = "EA_sum rank")
-ggsave("plot/ALE_EAvsSIFT/ALE_cipro_EAsumvsSIFTsum.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsSIFT/ALE_cipro_EAsumvsSIFTsum.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 
 
 GraphRankings(col, highlight.genes = col.genes, xvar = "SIFT_adj_KS_combine", yvar = "EAKS_combine", 
               title = NULL, 
               xlab = "SIFT_adj_KS rank", ylab = "EA_KS rank")
-ggsave("plot/ALE_EAvsSIFT/ALE_colistin_EAKSvsSIFTKS.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsSIFT/ALE_colistin_EAKSvsSIFTKS.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 
 GraphRankings(col, highlight.genes = col.genes, xvar = "SIFT_adj_sum_combine", yvar = "EAsum_combine", 
               title = NULL, 
               xlab = "SIFT_adj_sum rank", ylab = "EA_sum rank")
-ggsave("plot/ALE_EAvsSIFT/ALE_colistin_EAsumvsSIFTsum.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsSIFT/ALE_colistin_EAsumvsSIFTsum.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 
 

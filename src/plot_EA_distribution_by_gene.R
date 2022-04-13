@@ -160,6 +160,7 @@ GraphGeneSIFT_with_p_count(evolve, random, ABX = "COL", gene = "basS", include.s
 
 GraphGeneEA_with_p_count(evolve, random, ABX = "COL", gene = "ynjC", include.stop = TRUE) 
 GraphGeneSIFT_with_p_count(evolve, random, ABX = "COL", gene = "ynjC", include.stop = TRUE) 
+ggsave("plot/ALE_single_gene_EAdist/ynjC_SIFT.pdf", height = 3, width = 5, units = "in")
 
 # ggplot(random) +
 #   geom_histogram(aes(x = SIFT_adj, y=..count..), color = "black",position="identity", alpha=1, breaks = 10*0:10) +
@@ -170,5 +171,5 @@ figures <- tibble(abx = c("CIP", "CIP", "COL", "COL"),
                   gene = c("gyrA", "parC","basS", "basR"),
                   width = c(6, 6, 6, 6)*1.2) %>%
   mutate(figs = map2(abx, gene, ~GraphGeneEA_with_p_count(evolve, random, ABX = .x, gene = .y, include.stop = TRUE)))
-pmap(list(figures$figs, figures$gene, figures$width), ~ggsave(filename = paste0("plot/ALE_single_gene_EAdist/", ..2, ".jpeg"), 
+pmap(list(figures$figs, figures$gene, figures$width), ~ggsave(filename = paste0("plot/ALE_single_gene_EAdist/", ..2, ".pdf"), 
                                                               plot = ..1, height = 3, width = ..3, units = "in"))

@@ -180,7 +180,7 @@ PlotDSTP(cip.WT.DS, cip.genes$GENE_name, type = "median") +
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_CIP_WT.jpeg", width = 7, height = 7, units = "in")
+ggsave("plot/downsampling/ALE_CIP_WT.pdf", width = 7, height = 7, units = "in")
 
 PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "mean") +
   ggtitle("CIP - WT+mutagen")
@@ -192,7 +192,7 @@ PlotDSTP(cip.WM.DS, cip.genes$GENE_name, type = "median") +
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_CIP_WM.jpeg", width = 7, height = 8, units = "in")
+ggsave("plot/downsampling/ALE_CIP_WM.pdf", width = 7, height = 8, units = "in")
 
 
 PlotDSTP(cip.MT.DS, cip.genes$GENE_name, type = "mean") +
@@ -205,7 +205,7 @@ PlotDSTP(cip.MT.DS, cip.genes$GENE_name, type = "median") +
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_CIP_MT.jpeg", width = 7, height = 9, units = "in")
+ggsave("plot/downsampling/ALE_CIP_MT.pdf", width = 7, height = 9, units = "in")
 
 
 PlotDSTP(col.WT.DS, col.genes$GENE_name, type = "mean") +
@@ -218,7 +218,7 @@ PlotDSTP(col.WT.DS, col.genes$GENE_name, type = "median") +
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_COL_WT.jpeg", width = 7, height = 7, units = "in")
+ggsave("plot/downsampling/ALE_COL_WT.pdf", width = 7, height = 7, units = "in")
 
 
 PlotDSTP(col.WM.DS, col.genes$GENE_name, type = "mean") +
@@ -231,7 +231,7 @@ PlotDSTP(col.WM.DS, col.genes$GENE_name, type = "median") +
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_COL_WM.jpeg", width = 7, height = 9, units = "in")
+ggsave("plot/downsampling/ALE_COL_WM.pdf", width = 7, height = 9, units = "in")
 
 
 PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "mean") +
@@ -244,4 +244,4 @@ PlotDSTP(col.MT.DS, col.genes$GENE_name, type = "median") +
     axis.text = element_text(size = 12), # set font for axis numbers
     axis.title = element_text(size = 14), # set font for axis titles
     title = element_text(size = 14))
-ggsave("plot/downsampling/ALE_COL_MT.jpeg", width = 7, height = 9, units = "in")
+ggsave("plot/downsampling/ALE_COL_MT.pdf", width = 7, height = 9, units = "in")

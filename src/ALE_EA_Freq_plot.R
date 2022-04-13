@@ -19,7 +19,7 @@ cip.highlight.df <- cip.graph.df %>%
 ggplot() +
   geom_point(data = filter(cip.graph.df, !GENE_name %in% cip.select$GENE_name), aes(x = Freq_combine, y = EAKS_combine), fill = "gray60", color = "gray60", pch=21, alpha = 0.5) +
   geom_point(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, fill = class), color = "black",pch=21, size = 2) +
-  ggrepel::geom_text_repel(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold.italic", size = 4) +
+  ggrepel::geom_text_repel(data = cip.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "italic", size = 4.5) +
   geom_function(fun = function(x) x, color = "red", linetype = 2) +
   scale_fill_manual(values = c("#FEF851", "gray10", "#418F21", "#EB58F9")) +
   guides(fill=guide_legend(title="")) +
@@ -29,11 +29,12 @@ ggplot() +
   coord_fixed() +
   theme_classic() +
   theme(
-    axis.title = element_text(face="bold", size = 15),
-    axis.text = element_text(face="bold", size = 15),
-    legend.text = element_text(face="bold", size = 10)
+    axis.title = element_text(size = 15),
+    axis.text = element_text(size = 15),
+    legend.text = element_text(size = 12),
+    legend.position = c(0.9, 0.2)
   ) 
-ggsave("plot/ALE_EAvsFreq/ALE_cipro_KSvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_cipro_KSvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
 
 # Colistin
@@ -50,7 +51,7 @@ col.highlight.df <- col.graph.df %>%
 ggplot() +
   geom_point(data = filter(col.graph.df, !GENE_name %in% col.select$GENE_name), aes(x = Freq_combine, y = EAKS_combine), fill = "gray60", color = "gray60", pch=21, alpha = 0.5) +
   geom_point(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, fill = class), color = "black",pch=21, size = 2) +
-  ggrepel::geom_text_repel(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "bold.italic", size = 4) +
+  ggrepel::geom_text_repel(data = col.highlight.df, aes(x = Freq_combine, y = EAKS_combine, label = GENE_name), nudge_x = -0.28, nudge_y = 0, fontface = "italic", size = 4.5) +
   geom_function(fun = function(x) x, color = "red", linetype = 2) +
   scale_fill_manual(values = c("#FEF851", "#418F21", "#EB58F9")) +
   guides(fill=guide_legend(title="")) +
@@ -60,11 +61,12 @@ ggplot() +
   coord_fixed(xlim = c(2300,1), ylim = c(2300,1)) +
   theme_classic() +
   theme(
-    axis.title = element_text(face="bold", size = 15),
-    axis.text = element_text(face="bold", size = 15),
-    legend.text = element_text(face="bold", size = 10)
+    axis.title = element_text(size = 15),
+    axis.text = element_text(size = 15),
+    legend.text = element_text(size = 12),
+    legend.position = c(0.9, 0.2)
   )  
-ggsave("plot/ALE_EAvsFreq/ALE_colistin_KSvsFreq.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_colistin_KSvsFreq.pdf", height = 1, width = 1.2, units = "in", scale = 4)
 
 
 
@@ -80,22 +82,22 @@ col.known <- tibble(GENE_name = c("basS", "basR"),
 GraphRankings(cip.graph.df, cip.known, "Freq_combine", "EAKS_combine", 
               title = NULL, ylab = "EA-KS rank") +
   theme(legend.position = "none")
-ggsave("plot/ALE_EAvsFreq/ALE_cipro_EAKSvsFreq_known.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_cipro_EAKSvsFreq_known.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 GraphRankings(cip.graph.df, cip.known, "Freq_combine", "EAsum_combine", 
               title = NULL, ylab = "EA-sum rank") +
   theme(legend.position = "none")
-ggsave("plot/ALE_EAvsFreq/ALE_cipro_EAsumvsFreq_known.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_cipro_EAsumvsFreq_known.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 GraphRankings(col.graph.df, col.known, "Freq_combine", "EAKS_combine", 
               title = NULL, ylab = "EA-KS rank") +
   theme(legend.position = "none")
-ggsave("plot/ALE_EAvsFreq/ALE_colistin_EAKSvsFreq_known.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_colistin_EAKSvsFreq_known.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 GraphRankings(col.graph.df, col.known, "Freq_combine", "EAsum_combine", 
               title = NULL, ylab = "EA-sum rank") +
   theme(legend.position = "none")
-ggsave("plot/ALE_EAvsFreq/ALE_colistin_EAsumvsFreq_known.jpeg", height = 1, width = 1.5, units = "in", scale = 4)
+ggsave("plot/ALE_EAvsFreq/ALE_colistin_EAsumvsFreq_known.pdf", height = 1, width = 1.5, units = "in", scale = 4)
 
 
 
@@ -125,6 +127,7 @@ cip_by_condition <- tibble(x_var = c("Freq.rank"), y_var = c("EAKS.rank", "EAsum
   arrange((y_lab), desc(mut))
 
 cowplot::plot_grid(plotlist = cip_by_condition$fig, align = "hv", nrow = 2)
+ggsave("plot/ALE_EAvsFreq/ALE_cipro_by_condition.pdf", height = 6, width = 10, units = "in")
 
 
 col_by_condition <- tibble(x_var = c("Freq.rank"), y_var = c("EAKS.rank", "EAsum.rank"),
@@ -139,3 +142,4 @@ col_by_condition <- tibble(x_var = c("Freq.rank"), y_var = c("EAKS.rank", "EAsum
   arrange((y_lab), desc(mut))
 
 cowplot::plot_grid(plotlist = col_by_condition$fig, align = "hv", nrow = 2)
+ggsave("plot/ALE_EAvsFreq/ALE_colistin_by_condition.pdf", height = 6, width = 10, units = "in")

@@ -24,12 +24,12 @@ RareFraction <- function(evolve.df, seed = 100, genes = NULL) {
   sampleN <- length(unique.strains)
   set.seed(seed)
   rarefrac <- data.frame(sample_count = 1:(sampleN-1)) %>%
-    mutate(rep = I(list(1:10))) %>%  # for each sample size, try 10 times
+    mutate(rep = list(1:10)) %>%  # for each sample size, try 10 times
     unnest(cols = c(rep)) %>%
     mutate(picks = map(sample_count, ~sample(unique.strains, .))) 
   rarefrac.full <- tibble(sample_count = sampleN) %>%
     mutate(rep = 1,
-           picks = list(unique.strains))
+           picks = I(list(unique.strains)))
   rarefrac <- bind_rows(rarefrac, rarefrac.full) %>%
     mutate(results = map(picks, ~GetUniqueMut(evolve.df, ., genes = genes))) %>%
     unnest(cols = c(results))
@@ -102,6 +102,6 @@ rarefraction.output <- evolve %>%
 # plot_grid(plotlist = rarefraction.output$all_gene_plot, align = "hv", nrow = 2)
 # plot_grid(plotlist = rarefraction.output$all_mut_plot, align = "hv", nrow = 2)
 plot_grid(plotlist = rarefraction.output$TP_gene_plot, align = "hv", nrow = 2)
+ggsave("plot/downsampling/ALE_TP.pdf", width = 12, height = 6, units = "in")
 # plot_grid(plotlist = rarefraction.output$TP_mut_plot, align = "hv", nrow = 2)
-
 

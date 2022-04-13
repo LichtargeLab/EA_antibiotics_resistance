@@ -219,9 +219,8 @@ PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR"), type = "median") +
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))
+ggsave("plot/downsampling/Natural_isolates_cipro.pdf", width = 7, height = 5, units = "in")
 
-PlotDSTP(cip.NI.DS, c("gyrA", "parC", "parE", "acrR", "marR"), type = "median", scale_rank = TRUE) +
-  ggtitle("CIP - clinical")
 
 PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
   theme(legend.position="bottom",
@@ -230,9 +229,8 @@ PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
         axis.text = element_text(size = 12), # set font for axis numbers
         axis.title = element_text(size = 14), # set font for axis titles
         title = element_text(size = 14))
+ggsave("plot/downsampling/Natural_isolates_colistin.pdf", width = 7, height = 3, units = "in")
 
-PlotDSTP(col.NI.DS, c("basS", "basR"), type = "median") +
-  ggtitle("COL - clinical")
 
 
 
