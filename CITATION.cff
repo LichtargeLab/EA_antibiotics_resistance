@@ -1,0 +1,37 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Marciano
+    given-names: David
+  - family-names: Wang
+    given-names: Chen
+  - family-names: Hsu
+    given-names: Teng-Kuei
+  - family-names: Bourquard
+    given-names: Thomas
+  - family-names: Atri
+    given-names: Benu
+  - family-names: Nehring
+    given-names: Ralf
+  - family-names: Abel
+    given-names: Nicholas
+  - family-names: Bowling
+    given-names: Elizabeth
+  - family-names: Chen
+    given-names: Taylor
+  - family-names: Lurie
+    given-names: Pamela
+  - family-names: Katsonis
+    given-names: Panagiotis
+  - family-names: Rosenberg
+    given-names: Susan
+  - family-names: Herman
+    given-names: Christophe
+  - family-names: Lichtarge
+    given-names: Olivier
+title: Evolutionary action of mutations reveals antimicrobial resistance genes in Escherichia coli
+repository name: EA_antibiotics_resistance
+version: v0.1
+DOI: 10.5281/zenodo.6459660
+year: 2022
+            
