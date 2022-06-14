@@ -14,9 +14,11 @@ Use [src/AF_from_SangerSeq.R](https://github.com/LichtargeLab/EA_antibiotics_res
 
 ### Related References
 
-[Katsonis P, Lichtarge O. A formal perturbation equation between genotype and phenotype determines the Evolutionary Action of protein-coding variations on fitness. Genome Res. 2014 Dec;24(12):2050-8.](https://pubmed.ncbi.nlm.nih.gov/25217195/)
+[Marciano DC, Wang C, Hsu TK, Bourquard T, Atri B, Nehring RB, Abel NS, Bowling EA, Chen TJ, Lurie PD, Katsonis P, Rosenberg SM, Herman C, Lichtarge O. Evolutionary action of mutations reveals antimicrobial resistance genes in Escherichia coli. Nat Commun. 2022 Jun 9;13(1):3189.](https://www.nature.com/articles/s41467-022-30889-1)
 
-[Carr IM, Robinson JI, Dimitriou R, Markham AF, Morgan AW, Bonthron DT. Inferring relative proportions of DNA variants from sequencing electropherograms. Bioinformatics. 2009 Dec 15;25(24):3244-50.](https://pubmed.ncbi.nlm.nih.gov/19819885/)
+[Katsonis P, Lichtarge O. A formal perturbation equation between genotype and phenotype determines the Evolutionary Action of protein-coding variations on fitness. Genome Res. 2014 Dec;24(12):2050-8.](https://genome.cshlp.org/content/24/12/2050.long)
+
+[Carr IM, Robinson JI, Dimitriou R, Markham AF, Morgan AW, Bonthron DT. Inferring relative proportions of DNA variants from sequencing electropherograms. Bioinformatics. 2009 Dec 15;25(24):3244-50.](https://academic.oup.com/bioinformatics/article/25/24/3244/235657?login=false)
 
 ### Dependencies
 
