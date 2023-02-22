@@ -1,6 +1,6 @@
 # EA_antibiotics_resistance
 
-This repository contains all the code to analyze the driver genes in ciprofloxacin and colistin resistant E. coli using Evolutionary Action (EA). This method can be generalized to detect genes under other source of selections in evolved E. coli strains. To perform these analyses or query EA scores for mutations in MG1655, please visit our [R shiny app](http://bioheat.lichtargelab.org).
+This repository contains all the code to analyze the driver genes in ciprofloxacin and colistin resistant *E. coli* using Evolutionary Action (EA). This method can be generalized to detect genes under other source of selections in evolved E. coli strains. To perform these analyses or query EA scores for mutations in MG1655, please visit our [R shiny app](http://bioheat.lichtargelab.org).
 
 Raw sequencing files for the adaptive evolution experiments can be accessed [here](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA543834).
 
